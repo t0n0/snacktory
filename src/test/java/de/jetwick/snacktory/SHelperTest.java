@@ -83,9 +83,7 @@ public class SHelperTest {
 
     @Test
     public void testFavicon() {
-        assertEquals("http://www.n24.de/news/../../../media/imageimport/images/content/favicon.ico",
-                SHelper.useDomainOfFirstArg4Second("http://www.n24.de/news/newsitem_6797232.html", "../../../media/imageimport/images/content/favicon.ico"));
-        SHelper.useDomainOfFirstArg4Second("http://www.n24.de/favicon.ico", "/favicon.ico");
+    	SHelper.useDomainOfFirstArg4Second("http://www.n24.de/favicon.ico", "/favicon.ico");
         SHelper.useDomainOfFirstArg4Second("http://www.n24.de/favicon.ico", "favicon.ico");
     }
 

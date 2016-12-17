@@ -48,7 +48,7 @@ public class HtmlFetcherIntegrationTest {
     public void testWithTitle() throws Exception {
         JResult res = new HtmlFetcher().fetchAndExtract("http://www.midgetmanofsteel.com/2011/03/its-only-matter-of-time-before-fox-news.html", 10000, true);
         assertEquals("It's Only a Matter of Time Before Fox News Takes Out a Restraining Order", res.getTitle());
-        assertEquals("2011/03", res.getDate());
+        assertEquals("2011/03", res.getDateString());
     }
 
     // do not support this uglyness
@@ -84,12 +84,6 @@ public class HtmlFetcherIntegrationTest {
         assertEquals("http://grfx.cstv.com/schools/okla/graphics/auto/20110505_schedule.jpg", res.getImageUrl());
         assertTrue(res.getTitle().isEmpty());
         assertTrue(res.getText().isEmpty());
-    }
-
-    @Test
-    public void testFurther() throws Exception {
-        JResult res = new HtmlFetcher().fetchAndExtract("https://linksunten.indymedia.org/de/node/41619?utm_source=twitterfeed&utm_medium=twitter", 10000, true);
-        assertTrue(res.getText(), res.getText().startsWith("Es gibt kein ruhiges Hinterland! Schon wieder den "));
     }
 
     @Test
