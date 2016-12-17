@@ -188,7 +188,7 @@ public class Converter {
         String str = bos.toString(enc);
         int encIndex = str.indexOf(key);
         int clength = key.length();
-        if (encIndex > 0) {
+        if (encIndex > 0 && encIndex + clength < str.length()) {
             char startChar = str.charAt(encIndex + clength);
             int lastEncIndex;
             if (startChar == '\'')

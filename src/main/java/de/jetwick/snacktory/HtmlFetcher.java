@@ -31,7 +31,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.Inflater;
 import java.util.zip.InflaterInputStream;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -73,8 +72,8 @@ public class HtmlFetcher {
         }
         reader.close();
     }
-    private String referrer = "https://github.com/karussell/snacktory";
-    private String userAgent = "Mozilla/5.0 (compatible; Snacktory; +" + referrer + ")";
+    private String referrer = "http://www.google.com/bot.html";
+    private String userAgent = "Mozilla/5.0 (compatible; Googlebot/2.1; +" + referrer + ")";
     private String cacheControl = "max-age=0";
     private String language = "en-us";
     private String accept = "application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5";
@@ -260,7 +259,7 @@ public class HtmlFetcher {
         // or should we use? <link rel="canonical" href="http://www.N24.de/news/newsitem_6797232.html"/>
         result.setUrl(url);
         result.setOriginalUrl(originalUrl);
-        result.setDate(SHelper.estimateDate(url));
+        result.setDateString(SHelper.estimateDate(url));
 
         // Immediately put the url into the cache as extracting content takes time.
         if (cache != null) {
